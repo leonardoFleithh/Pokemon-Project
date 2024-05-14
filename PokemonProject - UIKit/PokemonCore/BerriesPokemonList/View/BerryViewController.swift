@@ -1,31 +1,24 @@
 //
-//  HomePokemonViewController.swift
+//  BerryViewController.swift
 //  PokemonProject - UIKit
 //
-//  Created by Leonardo on 08/05/24.
+//  Created by Leonardo on 14/05/24.
 //
 
 import UIKit
 
-protocol HomePokemonViewControllerDisplayLogic {
-    
-}
-
-class HomePokemonViewController: UIViewController, CodedView {
-    
-    
+class BerryViewController: UIViewController, CodedView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
     }
     
     func setupView() {
         setupHierarchy()
         setupConstraints()
         
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemPurple
     }
     
     func setupHierarchy() {
