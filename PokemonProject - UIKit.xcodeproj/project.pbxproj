@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		517204ED2BF3B62200CB4BE9 /* BerryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517204EC2BF3B62200CB4BE9 /* BerryViewController.swift */; };
 		51FC2CFE2BEC5B98006E6C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2CFD2BEC5B98006E6C43 /* AppDelegate.swift */; };
 		51FC2D002BEC5B98006E6C43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2CFF2BEC5B98006E6C43 /* SceneDelegate.swift */; };
 		51FC2D022BEC5B98006E6C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2D012BEC5B98006E6C43 /* ViewController.swift */; };
@@ -26,7 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B5ACCE49F19FAB7254849B1 /* Pods_PokemonProject___UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonProject___UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B5ACCE49F19FAB7254849B1 /* Pods_PokemonProject___UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_PokemonProject___UIKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		517204EC2BF3B62200CB4BE9 /* BerryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerryViewController.swift; sourceTree = "<group>"; };
 		51FC2CFA2BEC5B98006E6C43 /* PokemonProject - UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokemonProject - UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FC2CFD2BEC5B98006E6C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51FC2CFF2BEC5B98006E6C43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +68,23 @@
 				A7DE37D93ABCE7FA2E51D8C7 /* Pods-PokemonProject - UIKit.debug.xcconfig */,
 				6618A5992032B7F5E1C98F68 /* Pods-PokemonProject - UIKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		517204EA2BF3B5EB00CB4BE9 /* BerriesPokemonList */ = {
+			isa = PBXGroup;
+			children = (
+				517204EB2BF3B60300CB4BE9 /* View */,
+			);
+			path = BerriesPokemonList;
+			sourceTree = "<group>";
+		};
+		517204EB2BF3B60300CB4BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				517204EC2BF3B62200CB4BE9 /* BerryViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		51FC2CF12BEC5B98006E6C43 = {
@@ -139,6 +156,7 @@
 			children = (
 				51FC2D262BEC67BC006E6C43 /* PokemonTabBar */,
 				51FC2D132BEC5F13006E6C43 /* HomePokemonList */,
+				517204EA2BF3B5EB00CB4BE9 /* BerriesPokemonList */,
 			);
 			path = PokemonCore;
 			sourceTree = "<group>";
@@ -280,6 +298,7 @@
 				51FC2D162BEC5F40006E6C43 /* PokemonEndpoint.swift in Sources */,
 				51FC2D002BEC5B98006E6C43 /* SceneDelegate.swift in Sources */,
 				51FC2D1A2BEC5F58006E6C43 /* PokemonRequest.swift in Sources */,
+				517204ED2BF3B62200CB4BE9 /* BerryViewController.swift in Sources */,
 				51FC2D222BEC6675006E6C43 /* HomePokemonViewController+DisplayLogic.swift in Sources */,
 				51FC2D242BEC6703006E6C43 /* HomePokemonEntryPoint.swift in Sources */,
 				51FC2D1E2BEC6640006E6C43 /* HomePokemonPresenter.swift in Sources */,

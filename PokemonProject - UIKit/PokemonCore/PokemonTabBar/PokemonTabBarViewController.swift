@@ -16,5 +16,19 @@ class PokemonTabBarViewController: UITabBarController {
     
     private func setupView() {
         
+        let home = UINavigationController(rootViewController: HomePokemonViewController())
+        let berries = UINavigationController(rootViewController: HomePokemonViewController())
+        
+        let vcs: [UIViewController] = [home, berries]
+        
+        for vc in vcs {
+            vc.navigationItem.largeTitleDisplayMode = .automatic
+        }
+        
+        home.tabBarItem = UITabBarItem(title: "Pokemon", image: UIImage(systemName: "bird.circle.fill"), tag: 1)
+        berries.tabBarItem = UITabBarItem(title: "Berries", image: UIImage(systemName: "camera.macro.circle.fill"), tag: 2)
+        
+        setViewControllers(vcs, animated: true)
+        
     }
 }
