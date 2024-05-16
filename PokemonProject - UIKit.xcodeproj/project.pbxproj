@@ -24,6 +24,11 @@
 		51FC2D282BEC67E8006E6C43 /* PokemonTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2D272BEC67E8006E6C43 /* PokemonTabBarViewController.swift */; };
 		51FC2D2C2BEC6847006E6C43 /* CodedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2D2B2BEC6847006E6C43 /* CodedView.swift */; };
 		5DE952B1293FDC306CEC30BF /* Pods_PokemonProject___UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5ACCE49F19FAB7254849B1 /* Pods_PokemonProject___UIKit.framework */; };
+		F836D02C2BF660040040B0A4 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F836D02B2BF660040040B0A4 /* PokemonCollectionViewCell.swift */; };
+		F867B67B2BF3E0EA005045B7 /* PokeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B67A2BF3E0EA005045B7 /* PokeCard.swift */; };
+		F867B67D2BF3EA4A005045B7 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B67C2BF3EA4A005045B7 /* Extensions+UIView.swift */; };
+		F867B6812BF4EE50005045B7 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B6802BF4EE4F005045B7 /* Pokemon.swift */; };
+		F867B6832BF50661005045B7 /* HomePokemonViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B6822BF50661005045B7 /* HomePokemonViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		51FC2D2B2BEC6847006E6C43 /* CodedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedView.swift; sourceTree = "<group>"; };
 		6618A5992032B7F5E1C98F68 /* Pods-PokemonProject - UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonProject - UIKit.release.xcconfig"; path = "Target Support Files/Pods-PokemonProject - UIKit/Pods-PokemonProject - UIKit.release.xcconfig"; sourceTree = "<group>"; };
 		A7DE37D93ABCE7FA2E51D8C7 /* Pods-PokemonProject - UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonProject - UIKit.debug.xcconfig"; path = "Target Support Files/Pods-PokemonProject - UIKit/Pods-PokemonProject - UIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		F836D02B2BF660040040B0A4 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
+		F867B67A2BF3E0EA005045B7 /* PokeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCard.swift; sourceTree = "<group>"; };
+		F867B67C2BF3EA4A005045B7 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		F867B6802BF4EE4F005045B7 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		F867B6822BF50661005045B7 /* HomePokemonViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePokemonViewController+CollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				51FC2D292BEC681D006E6C43 /* PokemonPackage */,
+				51FC2D142BEC5F2E006E6C43 /* PokemonService */,
 				51FC2CFC2BEC5B98006E6C43 /* PokemonProject - UIKit */,
 				51FC2CFB2BEC5B98006E6C43 /* Products */,
 				08BE17771EDADD74BA1A9DA9 /* Pods */,
@@ -110,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				51FC2D252BEC67B0006E6C43 /* PokemonCore */,
-				51FC2D142BEC5F2E006E6C43 /* PokemonService */,
 				51FC2CFD2BEC5B98006E6C43 /* AppDelegate.swift */,
 				51FC2CFF2BEC5B98006E6C43 /* SceneDelegate.swift */,
 				51FC2D012BEC5B98006E6C43 /* ViewController.swift */,
@@ -126,6 +136,7 @@
 			children = (
 				51FC2D1F2BEC6654006E6C43 /* HomePokemonViewController.swift */,
 				51FC2D212BEC6675006E6C43 /* HomePokemonViewController+DisplayLogic.swift */,
+				F867B6822BF50661005045B7 /* HomePokemonViewController+CollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 		51FC2D132BEC5F13006E6C43 /* HomePokemonList */ = {
 			isa = PBXGroup;
 			children = (
+				F836D02A2BF65FE40040B0A4 /* Cell */,
 				51FC2D112BEC5F01006E6C43 /* View */,
 				51FC2D1B2BEC6625006E6C43 /* HomePokemonInteractor.swift */,
 				51FC2D1D2BEC6640006E6C43 /* HomePokemonPresenter.swift */,
@@ -144,6 +156,8 @@
 		51FC2D142BEC5F2E006E6C43 /* PokemonService */ = {
 			isa = PBXGroup;
 			children = (
+				F867B67F2BF4ECAC005045B7 /* WebServices */,
+				F867B67E2BF4EC9A005045B7 /* Models */,
 				51FC2D152BEC5F40006E6C43 /* PokemonEndpoint.swift */,
 				51FC2D172BEC5F4C006E6C43 /* PokemonService.swift */,
 				51FC2D192BEC5F58006E6C43 /* PokemonRequest.swift */,
@@ -172,6 +186,7 @@
 		51FC2D292BEC681D006E6C43 /* PokemonPackage */ = {
 			isa = PBXGroup;
 			children = (
+				F867B6792BF3E0D2005045B7 /* PokemonUI */,
 				51FC2D2A2BEC682D006E6C43 /* Resources */,
 			);
 			path = PokemonPackage;
@@ -181,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				51FC2D2B2BEC6847006E6C43 /* CodedView.swift */,
+				F867B67C2BF3EA4A005045B7 /* Extensions+UIView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -191,6 +207,37 @@
 				3B5ACCE49F19FAB7254849B1 /* Pods_PokemonProject___UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F836D02A2BF65FE40040B0A4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F836D02B2BF660040040B0A4 /* PokemonCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		F867B6792BF3E0D2005045B7 /* PokemonUI */ = {
+			isa = PBXGroup;
+			children = (
+				F867B67A2BF3E0EA005045B7 /* PokeCard.swift */,
+			);
+			path = PokemonUI;
+			sourceTree = "<group>";
+		};
+		F867B67E2BF4EC9A005045B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F867B6802BF4EE4F005045B7 /* Pokemon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F867B67F2BF4ECAC005045B7 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +251,7 @@
 				51FC2CF62BEC5B98006E6C43 /* Sources */,
 				51FC2CF72BEC5B98006E6C43 /* Frameworks */,
 				51FC2CF82BEC5B98006E6C43 /* Resources */,
+				75846AE102A17A6699E7D5AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,6 +330,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		75846AE102A17A6699E7D5AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonProject - UIKit/Pods-PokemonProject - UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonProject - UIKit/Pods-PokemonProject - UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonProject - UIKit/Pods-PokemonProject - UIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -291,10 +356,13 @@
 			files = (
 				51FC2D2C2BEC6847006E6C43 /* CodedView.swift in Sources */,
 				51FC2D282BEC67E8006E6C43 /* PokemonTabBarViewController.swift in Sources */,
+				F867B6832BF50661005045B7 /* HomePokemonViewController+CollectionView.swift in Sources */,
 				51FC2D1C2BEC6625006E6C43 /* HomePokemonInteractor.swift in Sources */,
+				F867B6812BF4EE50005045B7 /* Pokemon.swift in Sources */,
 				51FC2D182BEC5F4C006E6C43 /* PokemonService.swift in Sources */,
 				51FC2D022BEC5B98006E6C43 /* ViewController.swift in Sources */,
 				51FC2CFE2BEC5B98006E6C43 /* AppDelegate.swift in Sources */,
+				F867B67D2BF3EA4A005045B7 /* Extensions+UIView.swift in Sources */,
 				51FC2D162BEC5F40006E6C43 /* PokemonEndpoint.swift in Sources */,
 				51FC2D002BEC5B98006E6C43 /* SceneDelegate.swift in Sources */,
 				51FC2D1A2BEC5F58006E6C43 /* PokemonRequest.swift in Sources */,
@@ -302,7 +370,9 @@
 				51FC2D222BEC6675006E6C43 /* HomePokemonViewController+DisplayLogic.swift in Sources */,
 				51FC2D242BEC6703006E6C43 /* HomePokemonEntryPoint.swift in Sources */,
 				51FC2D1E2BEC6640006E6C43 /* HomePokemonPresenter.swift in Sources */,
+				F836D02C2BF660040040B0A4 /* PokemonCollectionViewCell.swift in Sources */,
 				51FC2D202BEC6654006E6C43 /* HomePokemonViewController.swift in Sources */,
+				F867B67B2BF3E0EA005045B7 /* PokeCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +517,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBPHWYT77P;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PokemonProject - UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -474,6 +546,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PBPHWYT77P;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PokemonProject - UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PokemonRequest {
-    private let endpoint: PokemonEndpoint
+final class PokemonRequest {
+    private var endpoint: PokemonEndpoint
     private var path: [String]
     private var queryItems: [URLQueryItem]
     
@@ -23,20 +23,21 @@ struct PokemonRequest {
         
         
         if !queryItems.isEmpty {
+            string += "?"
+    
+            let arguments = queryItems.compactMap {
+                guard let value = $0.value else { return nil }
+                
+                return "\($0.name)=\(value)"
+            }.joined(separator: "?")
             
-            queryItems.forEach {
-                let value = $0.value
-                string += "\($0.name)=\(value)"
-            }
-            
+            string += arguments
         }
-        
         return string
     }
     
     public var url: URL? {
-        let url = URL(string: urlString)
-        return url
+        return URL(string: urlString)
     }
     
     public var httpMethod = "GET"

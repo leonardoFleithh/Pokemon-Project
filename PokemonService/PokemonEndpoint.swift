@@ -12,11 +12,17 @@ enum PokemonEndpoint: String {
     case berries
     
     public var baseURL: String {
+        var baseURL: String = "https://pokeapi.co/api/v2/"
+        
         switch self {
         case .pokemon:
-            return "pokemon"
+            baseURL += "pokemon"
         case .berries:
-            return "berries"
+            baseURL += "berry"
         }
+        
+        return baseURL
     }
 }
+
+// all pokemons: pokemon/?offset=0&limit=151

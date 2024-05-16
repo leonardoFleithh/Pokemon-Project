@@ -6,5 +6,6 @@ target 'PokemonProject - UIKit' do
   use_frameworks!
 
   # Pods for PokemonProject - UIKit
+  pod 'SnapKit', '~> 5.0.0'
 
 end
