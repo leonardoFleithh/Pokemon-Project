@@ -83,16 +83,15 @@ final class PokeCard: UIView, CodedView {
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(16)
         }
         
         image.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(cardView.snp.height).multipliedBy(0.45)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(cardView.snp.height).multipliedBy(0.65)
         }
         
         titleLabel.snp.makeConstraints { make in

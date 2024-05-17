@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511994822BF6FA44001DEB7B /* HeaderHomePokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511994812BF6FA44001DEB7B /* HeaderHomePokemonCollectionViewCell.swift */; };
 		517204ED2BF3B62200CB4BE9 /* BerryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517204EC2BF3B62200CB4BE9 /* BerryViewController.swift */; };
 		51FC2CFE2BEC5B98006E6C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2CFD2BEC5B98006E6C43 /* AppDelegate.swift */; };
 		51FC2D002BEC5B98006E6C43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC2CFF2BEC5B98006E6C43 /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		3B5ACCE49F19FAB7254849B1 /* Pods_PokemonProject___UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_PokemonProject___UIKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		511994812BF6FA44001DEB7B /* HeaderHomePokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomePokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		517204EC2BF3B62200CB4BE9 /* BerryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerryViewController.swift; sourceTree = "<group>"; };
 		51FC2CFA2BEC5B98006E6C43 /* PokemonProject - UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokemonProject - UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FC2CFD2BEC5B98006E6C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				F836D02B2BF660040040B0A4 /* PokemonCollectionViewCell.swift */,
+				511994812BF6FA44001DEB7B /* HeaderHomePokemonCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				51FC2D2C2BEC6847006E6C43 /* CodedView.swift in Sources */,
 				51FC2D282BEC67E8006E6C43 /* PokemonTabBarViewController.swift in Sources */,
+				511994822BF6FA44001DEB7B /* HeaderHomePokemonCollectionViewCell.swift in Sources */,
 				F867B6832BF50661005045B7 /* HomePokemonViewController+CollectionView.swift in Sources */,
 				51FC2D1C2BEC6625006E6C43 /* HomePokemonInteractor.swift in Sources */,
 				F867B6812BF4EE50005045B7 /* Pokemon.swift in Sources */,

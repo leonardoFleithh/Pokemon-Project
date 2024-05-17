@@ -25,7 +25,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     private func setupConstraints() {
         self.addSubviews(pokeCard)
         pokeCard.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top).offset(0)
+            make.top.equalTo(self.snp.top).offset(24)
             make.bottom.equalTo(self.snp.bottom).offset(0)
             make.leading.equalTo(self.snp.leading).offset(0)
             make.trailing.equalTo(self.snp.trailing).offset(0)
