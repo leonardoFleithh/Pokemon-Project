@@ -17,13 +17,13 @@ class PokemonTabBarViewController: UITabBarController {
     
     private func setupView() {
         
-        let home = UINavigationController(rootViewController: HomePokemonViewController())
-        let berries = UINavigationController(rootViewController: HomePokemonViewController())
+        let home = UINavigationController(rootViewController: HomePokemonViewController(interactor: HomePokemonInteractor(service: PokemonService(), presenter: HomePokemonPresenter(), imageBackground: nil), coordinator: HomePokemonCoordinator(navigationController: UINavigationController())))
+        let berries = UINavigationController(rootViewController: BerryViewController())
         
         let vcs: [UIViewController] = [home, berries]
         
         for vc in vcs {
-            vc.navigationItem.largeTitleDisplayMode = .automatic
+            vc.navigationItem.largeTitleDisplayMode = .never
         }
         
         home.tabBarItem = UITabBarItem(title: "Pokemon", image: UIImage(systemName: "bird.circle.fill"), tag: 1)

@@ -33,20 +33,4 @@ extension HomePokemonViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderHomePokemonCollectionViewCell.identifier, for: indexPath) as? HeaderHomePokemonCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.setupUI()
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height * 0.35
-        return CGSize(width: width, height: height)
-    }
 }
