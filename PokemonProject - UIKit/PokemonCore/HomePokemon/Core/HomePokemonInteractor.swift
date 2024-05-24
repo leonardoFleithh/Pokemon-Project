@@ -9,27 +9,20 @@ import Foundation
 import UIKit
 
 protocol HomePokemonInteractorLogic {
-    func fetchPokemons(_ request: HomePokemonViewModel.GetData.Request)
     func setImageBackground(_ request: HomePokemonViewModel.DisplayBackground.Request)
 }
 
 final class HomePokemonInteractor: HomePokemonInteractorLogic {
     //MARK: Var's
-    let service: PokemonService
     let presenter: HomePokemonPresenter
     let imageBackground: String?
     
-    init(service: PokemonService, presenter: HomePokemonPresenter, imageBackground: String?) {
-        self.service = service
+    init(presenter: HomePokemonPresenter, imageBackground: String?) {
         self.presenter = presenter
         self.imageBackground = imageBackground
     }
     
     //MARK: Func's
-    func fetchPokemons(_ request: HomePokemonViewModel.GetData.Request) {
-        
-    }
-    
     func setImageBackground(_ request: HomePokemonViewModel.DisplayBackground.Request) {
         switch self.imageBackground {
         case .none:

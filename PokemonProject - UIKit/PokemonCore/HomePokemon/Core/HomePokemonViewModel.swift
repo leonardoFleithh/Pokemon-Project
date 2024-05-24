@@ -17,29 +17,6 @@ struct HomePokemonStrings {
 }
 
 enum HomePokemonViewModel {
-    enum GetData {
-        struct Request {}
-        enum Response {
-            struct Success {
-                let pokemon: Pokemon
-            }
-            
-            struct Failure {
-                let error: PokemonError
-            }
-        }
-        enum ViewModel {
-            struct Success {
-                let name: String
-                let url: String
-            }
-            
-            struct Failure {
-                let error: PokemonError
-            }
-        }
-    }
-    
     enum DisplayBackground {
         struct Request {}
         enum Response {

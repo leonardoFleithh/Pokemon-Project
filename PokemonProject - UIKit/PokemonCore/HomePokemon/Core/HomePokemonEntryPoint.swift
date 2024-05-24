@@ -17,8 +17,7 @@ public enum HomePokemonEntryPoint {
     static func make(_ coordinator: (Coordinator & HomePokemonCoordinatable)?, parametes: Parameters? = nil) -> HomePokemonViewController {
         
         let presenter = HomePokemonPresenter()
-        let service = PokemonService()
-        let interactor = HomePokemonInteractor(service: service, presenter: presenter, imageBackground: parametes?.image)
+        let interactor = HomePokemonInteractor(presenter: presenter, imageBackground: parametes?.image)
         let viewController = HomePokemonViewController(interactor: interactor, coordinator: coordinator)
         
         presenter.viewController = viewController
