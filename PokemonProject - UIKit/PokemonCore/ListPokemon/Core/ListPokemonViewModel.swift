@@ -12,18 +12,20 @@ struct ListPokemonViewModel {
         struct Request {}
         enum Response {
             struct Success {
-                
+                let images: [String]
+                let names: [String]
             }
             struct Failure {
-                
+                let error: Error
             }
         }
         enum ViewModel {
             struct Success {
-                
+                let images: [String]
+                let names: [String]
             }
             struct Failure {
-                
+                let error: Error
             }
         }
     }

@@ -15,6 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "angleLeft")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "angleLeft")
+        UINavigationBar.appearance().tintColor = .black
+        
         let navigationController = UINavigationController()
         
         let window = UIWindow(windowScene: windowScene)

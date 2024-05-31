@@ -26,13 +26,10 @@ class HomePokemonViewController: UIViewController, CodedView {
     }
     
     //MARK: View Lifecycle
-    override func viewDidAppear(_ animated: Bool) {
-        let request = HomePokemonViewModel.GetData.Request()
-        interactor.fetchPokemons(request)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
+        
         setupView()
         configureNavItems()
         
@@ -44,7 +41,11 @@ class HomePokemonViewController: UIViewController, CodedView {
     func setupView() {
         setupHierarchy()
         setupConstraints()
-    
+        
+        self.headerView.didTapOnList = { [weak self] in
+            
+            self?.interactor.showPokemonList(.init())
+        }
     }
     
     func setupHierarchy() {

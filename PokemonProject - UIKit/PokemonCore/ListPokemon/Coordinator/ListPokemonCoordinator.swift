@@ -16,8 +16,6 @@ final class ListPokemonCoordinator: Coordinator {
     }
     
     func start() {
-        setupBackImage()
-        
         let listPokemonVc = ListPokemonEntryPoint.make(self)
         self.navigationController.pushViewController(listPokemonVc, animated: true)
         

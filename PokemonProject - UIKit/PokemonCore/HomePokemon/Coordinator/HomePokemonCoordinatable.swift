@@ -9,15 +9,13 @@ import Foundation
 
 protocol HomePokemonCoordinatable {
     func showPokemonList()
-    func showChoosePokemonType()
 }
 
 extension HomePokemonCoordinator: HomePokemonCoordinatable {
     func showPokemonList() {
-        
-    }
-    
-    func showChoosePokemonType() {
+        let coordinator = ListPokemonCoordinator(navigationController: navigationController)
+        let listPokemonVc = ListPokemonEntryPoint.make(coordinator)
+        navigationController.pushViewController(listPokemonVc, animated: true)
         
     }
 }

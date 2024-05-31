@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePokemonInteractorLogic {
     func setImageBackground(_ request: HomePokemonViewModel.DisplayBackground.Request)
+    func showPokemonList(_ request: HomePokemonViewModel.ShowPokemonList.Request)
 }
 
 final class HomePokemonInteractor: HomePokemonInteractorLogic {
@@ -35,6 +36,12 @@ final class HomePokemonInteractor: HomePokemonInteractorLogic {
             presenter.displayHomeBackground(response)
         }
     }
+    
+    func showPokemonList(_ request: HomePokemonViewModel.ShowPokemonList.Request) {
+        let response = HomePokemonViewModel.ShowPokemonList.Response()
+        presenter.presentPokemonList(response)
+    }
+    
     
     private func responseBackgroundForType(_ type: String) -> HomePokemonViewModel.DisplayBackground.Response.Success {
         var imageName = String()

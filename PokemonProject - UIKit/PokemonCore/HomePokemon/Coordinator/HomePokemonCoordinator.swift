@@ -16,8 +16,6 @@ final class HomePokemonCoordinator: Coordinator {
     }
     
     func start() {
-        setupBackImage()
-        
         let homePokeVC = HomePokemonEntryPoint.make(self)
         navigationController.pushViewController(homePokeVC, animated: true)
     }

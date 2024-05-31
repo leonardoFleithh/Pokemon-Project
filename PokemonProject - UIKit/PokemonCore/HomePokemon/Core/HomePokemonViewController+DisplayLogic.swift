@@ -11,6 +11,8 @@ import UIKit
 protocol HomePokemonViewControllerDisplayLogic {
     func presentPokemonBackground(_ viewModel: HomePokemonViewModel.DisplayBackground.ViewModel.Success)
     func presentPokemonBackground(_ viewModel: HomePokemonViewModel.DisplayBackground.ViewModel.Failure)
+    
+    func showPokemonList(_ viewModel: HomePokemonViewModel.ShowPokemonList.ViewModel)
 }
 
 extension HomePokemonViewController: HomePokemonViewControllerDisplayLogic {
@@ -27,5 +29,9 @@ extension HomePokemonViewController: HomePokemonViewControllerDisplayLogic {
     
     func presentPokemonBackground(_ viewModel: HomePokemonViewModel.DisplayBackground.ViewModel.Failure) {
         
+    }
+    
+    func showPokemonList(_ viewModel: HomePokemonViewModel.ShowPokemonList.ViewModel) {
+        coordinator?.showPokemonList()
     }
 }

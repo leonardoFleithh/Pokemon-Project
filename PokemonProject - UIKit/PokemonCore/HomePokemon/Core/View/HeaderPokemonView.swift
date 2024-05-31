@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class HeaderPokemonView: UIView, CodedView {
+    
+    var didTapOnList: (() -> Void)?
+    
     private lazy var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.clear.cgColor, UIColor.white.cgColor]
@@ -88,6 +91,7 @@ class HeaderPokemonView: UIView, CodedView {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(showListPokemon), for: .touchUpInside)
         return button
     }()
     
@@ -97,10 +101,10 @@ class HeaderPokemonView: UIView, CodedView {
         setupView()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradient.frame = imageBackground.frame
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        gradient.frame = imageBackground.frame
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -114,9 +118,9 @@ class HeaderPokemonView: UIView, CodedView {
     
     func setupHierarchy() {
         self.addSubviews(imageBackground)
-        imageBackground.layer.addSublayer(gradient)
+        //imageBackground.layer.addSublayer(gradient)
         imageBackground.addSubview(textsStackView)
-        imageBackground.addSubview(listPokemonButton)
+        self.addSubview(listPokemonButton)
     }
     
     func setupConstraints() {
@@ -156,5 +160,9 @@ class HeaderPokemonView: UIView, CodedView {
         self.typePokemonDescription.text = typeDescription
         self.centerPokemonTitle.text = centerTitle
         self.centerPokemonDescription.text = centerDescription
+    }
+    
+    @objc func showListPokemon() {
+        didTapOnList?()
     }
 }

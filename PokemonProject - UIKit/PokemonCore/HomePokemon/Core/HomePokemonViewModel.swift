@@ -39,4 +39,10 @@ enum HomePokemonViewModel {
             }
         }
     }
+    
+    enum ShowPokemonList {
+        struct Request {}
+        struct Response {}
+        struct ViewModel {}
+    }
 }

@@ -127,6 +127,9 @@ class ChoosePokemonViewController: UIViewController, CodedView {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backButtonTitle = ""
+        
         setupView()
     }
     

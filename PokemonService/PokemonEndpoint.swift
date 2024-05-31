@@ -10,6 +10,7 @@ import Foundation
 enum PokemonEndpoint: String {
     case pokemon
     case berries
+    case none
     
     public var baseURL: String {
         var baseURL: String = "https://pokeapi.co/api/v2/"
@@ -19,6 +20,8 @@ enum PokemonEndpoint: String {
             baseURL += "pokemon"
         case .berries:
             baseURL += "berry"
+        case .none:
+            baseURL = ""
         }
         
         return baseURL

@@ -12,15 +12,7 @@ protocol ChoosePokemonCoordinatable {
     func showHomePokemon(imageBackground: String?)
 }
 
-final class ChoosePokemonCoordinator: Coordinator, HomePokemonCoordinatable {
-    func showPokemonList() {
-        
-    }
-    
-    func showChoosePokemonType() {
-        
-    }
-    
+final class ChoosePokemonCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
@@ -29,8 +21,6 @@ final class ChoosePokemonCoordinator: Coordinator, HomePokemonCoordinatable {
     }
     
     func start() {
-        setupBackImage()
-        
         let choosePokemonVC = ChoosePokemonEntryPoint.configureView(self)
         navigationController.pushViewController(choosePokemonVC, animated: true)
     }
@@ -38,8 +28,9 @@ final class ChoosePokemonCoordinator: Coordinator, HomePokemonCoordinatable {
 
 extension ChoosePokemonCoordinator: ChoosePokemonCoordinatable {
     func showHomePokemon(imageBackground: String?) {
+        let coordinator = HomePokemonCoordinator(navigationController: navigationController)
         let parameters = HomePokemonEntryPoint.Parameters.init(image: imageBackground ?? "")
-        let homePokemonVC = HomePokemonEntryPoint.make(self, parametes: parameters)
+        let homePokemonVC = HomePokemonEntryPoint.make(coordinator, parametes: parameters)
         navigationController.pushViewController(homePokemonVC, animated: true)
     }
 }

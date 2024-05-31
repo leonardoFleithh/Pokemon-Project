@@ -8,9 +8,11 @@
 import Foundation
 
 protocol ListPokemonCoordinatable {
-    
+    func showListPokemons()
 }
 
 extension ListPokemonCoordinator: ListPokemonCoordinatable {
-    
+    func showListPokemons() {
+        
+    }
 }

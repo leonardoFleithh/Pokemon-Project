@@ -6,33 +6,25 @@
 //
 
 import UIKit
-import SnapKit
 
-class ListPokemonViewCell: UIView, CodedView {
+class ListPokemonViewCell: UITableViewCell, CodedView {
     //MARK: Var's
+    static let identifier = "id"
+    
     private lazy var mainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .secondarySystemBackground
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
         return view
     }()
     
-    private lazy var circleView: UIView = {
-        let view = UIView()
-        view.layer.cornerCurve = .circular
-        view.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        view.backgroundColor = .gray
-        view.addSubview(imageCircleView)
-        return view
-    }()
-    
     private lazy var imageCircleView: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.layer.cornerCurve = .circular
-        image.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
-        image.image = nil
+        image.contentMode = .scaleToFill
+        image.layer.cornerRadius = 15
+        image.layer.masksToBounds = true
+        image.image = UIImage(named: "thunderBackground")
         return image
     }()
     
@@ -40,7 +32,7 @@ class ListPokemonViewCell: UIView, CodedView {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 24, weight: .regular)
-        label.text = "No name"
+        label.text = "Pikachu"
         return label
     }()
     
@@ -52,20 +44,11 @@ class ListPokemonViewCell: UIView, CodedView {
         return image
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [circleView, pokemonName])
-        stack.axis = .horizontal
-        stack.spacing = 16
-        return stack
-    }()
-    
-
-    //MARK: Setup
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -78,29 +61,39 @@ class ListPokemonViewCell: UIView, CodedView {
     
     func setupHierarchy() {
         self.addSubview(mainView)
-        mainView.addSubviews(stackView, rightArrowView)
+        mainView.addSubviews(imageCircleView, pokemonName, rightArrowView)
     }
     
     func setupConstraints() {
         mainView.snp.makeConstraints { make in
+            
             make.top.leading.trailing.bottom.equalToSuperview()
         }
         
-        stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().inset(10)
+        imageCircleView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().inset(16)
+            make.width.equalTo(100)
+        }
+        
+        pokemonName.snp.makeConstraints { make in
+            make.centerY.equalTo(imageCircleView.snp.centerY)
+            make.leading.equalTo(imageCircleView.snp.trailing).offset(16)
         }
         
         rightArrowView.snp.makeConstraints { make in
-            make.centerY.equalTo(stackView)
-            make.trailing.equalToSuperview().inset(10)
+            make.centerY.equalTo(imageCircleView.snp.centerY)
+            make.trailing.equalTo(mainView.snp.trailing).inset(16)
         }
         
     }
     
-    public func configure(image: String, pokemonName: String) {
+    public func configureCell(image: String, pokemonName: String) {
         self.imageCircleView.image = UIImage(named: image)
         self.pokemonName.text = pokemonName
     }
+}
+
+#Preview {
+    ListPokemonViewCell()
 }

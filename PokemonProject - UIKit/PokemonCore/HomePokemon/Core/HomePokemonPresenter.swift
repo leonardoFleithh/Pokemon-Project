@@ -11,6 +11,8 @@ import UIKit
 protocol HomePokemonPresenterLogic {
     func displayHomeBackground(_ response: HomePokemonViewModel.DisplayBackground.Response.Success)
     func displayHomeBackground(_ response: HomePokemonViewModel.DisplayBackground.Response.Failure)
+    
+    func presentPokemonList(_ response: HomePokemonViewModel.ShowPokemonList.Response)
 }
 
 final class HomePokemonPresenter: HomePokemonPresenterLogic {
@@ -24,5 +26,10 @@ final class HomePokemonPresenter: HomePokemonPresenterLogic {
     
     func displayHomeBackground(_ response: HomePokemonViewModel.DisplayBackground.Response.Failure) {
         
+    }
+    
+    func presentPokemonList(_ response: HomePokemonViewModel.ShowPokemonList.Response) {
+        let viewModel = HomePokemonViewModel.ShowPokemonList.ViewModel()
+        viewController?.showPokemonList(viewModel)
     }
 }

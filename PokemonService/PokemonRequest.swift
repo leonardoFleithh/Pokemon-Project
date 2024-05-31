@@ -8,12 +8,20 @@
 import Foundation
 
 final class PokemonRequest {
+    private var urlPokemon: String?
     private var endpoint: PokemonEndpoint
     private var path: [String]
     private var queryItems: [URLQueryItem]
     
     private var urlString: String {
-        var string = endpoint.baseURL
+        
+        var string = String()
+        
+        if endpoint == .none {
+            string = urlPokemon ?? ""
+        } else {
+            string = endpoint.rawValue
+        }
         
         if !path.isEmpty {
             path.forEach {
@@ -42,8 +50,9 @@ final class PokemonRequest {
     
     public var httpMethod = "GET"
     
-    init(endpoint: PokemonEndpoint, path: [String] = [], queryItems: [URLQueryItem] = []) {
-        self.endpoint = endpoint
+    init(urlPokemonSelected: String?, endpoint: PokemonEndpoint?, path: [String] = [], queryItems: [URLQueryItem] = []) {
+        self.urlPokemon = urlPokemonSelected
+        self.endpoint = endpoint ?? .none
         self.path = path
         self.queryItems = queryItems
     }
