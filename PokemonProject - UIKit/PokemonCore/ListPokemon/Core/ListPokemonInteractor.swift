@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListPokemonInteractorLogic {
-    func fetchImagesForPokemon(_ request: ListPokemonViewModel.GetPokemons.Request)
+    func fetchImagesForPokemon(_ request: ListPokemonViewModel.GetPokemons.Request) async throws
 }
 
 protocol ListPokemonInteractorDataStore {
@@ -21,8 +21,8 @@ final class ListPokemonInteractor: ListPokemonInteractorLogic {
     let service: PokemonService
     let presenter: ListPokemonPresenter
     
-    var pokemonNamesList: [String]?
-    var pokemonsURLsList: [String]?
+    var pokemonNamesList: [String] = []
+    var pokemonsURLsList: [String] = []
     
     init(service: PokemonService, presenter: ListPokemonPresenter) {
         self.service = service
@@ -31,50 +31,46 @@ final class ListPokemonInteractor: ListPokemonInteractorLogic {
     
     //MARK: Func's
     
-    func fetchImagesForPokemon(_ request: ListPokemonViewModel.GetPokemons.Request) {
-        guard let pokemonInfo = getSprite(), !pokemonInfo.images.isEmpty else {
+    func fetchImagesForPokemon(_ request: ListPokemonViewModel.GetPokemons.Request) async throws  {
+        
+        let pokemonSprites = try await getSprite()
+        
+        guard let pokemonInfo = pokemonSprites, !pokemonInfo.images.isEmpty else {
             return
         }
         
-        for pokemonImage in pokemonsURLsList {
-            service.fetchPokemon(request: .init(urlPokemonSelected: pokemonImage, endpoint: nil), type: PokemonSprites.self) { result in
-                switch result {
-                case .success(let pokemon):
-                    pokemonImagesList.append(pokemon.front_default ?? "placeholder")
-                    
-                    let response = ListPokemonViewModel.GetPokemons.Response.Success(images: pokemonImagesList, names: self.pokemonNamesList ?? ["no name"])
-                    
-                    self.presenter.displayPokemonSuccess(response)
-                    
-                case .failure(let error):
-                    print(String(describing: error))
-                    let error = ListPokemonViewModel.GetPokemons.Response.Failure(error: error)
-                    self.presenter.displayPokemonFailure(error)
-                }
+        guard pokemonInfo.images.count == pokemonInfo.names.count else {
+            return
+        }
+        
+        for pokemonImage in pokemonInfo.images {
+            
+            let response = try await self.service.fetchPokemon(request: .init(urlPokemonSelected: pokemonImage, endpoint: .none), type: PokemonSelected.self)
+            
+            for image in response.sprites {
+                self.pokemonsURLsList.append(image.front_default ?? "no image")
             }
         }
-
+        
+        self.presenter.displayPokemonSuccess(.init(images: pokemonsURLsList, names: pokemonInfo.names))
     }
     
-    private func getSprite() -> ListPokemonViewModel.GetPokemons.Response.Success? {
+    
+    private func getSprite() async throws -> ListPokemonViewModel.GetPokemons.Response.Success? {
         var urlsList: [String] = []
         var namesList: [String] = []
-        var response: ListPokemonViewModel.GetPokemons.Response.Success?
         
-        self.service.fetchPokemon(request: PokemonRequest.init(urlPokemonSelected: nil, endpoint: .pokemon, path: ["?offset=0&limit=151"] ), type: Pokemon.self) { result in
-            switch result {
-            case .success(let pokemon):
-                pokemon.results.forEach { pokemon in
-                    print(String(describing: pokemon))
-                    urlsList.append(pokemon.url)
-                    namesList.append(pokemon.name)
-                    response = ListPokemonViewModel.GetPokemons.Response.Success.init(images: urlsList, names: namesList)
-                }
-            case .failure(let error):
-                print(String(describing: error))
+        do {
+            let response = try await self.service.fetchPokemon(request: .init(urlPokemonSelected: nil, endpoint: .pokemon, path: ["/?offset=0&limit=151"]), type: Pokemon.self)
+            
+            for pokeInfo in response.results {
+                urlsList.append(pokeInfo.url)
+                namesList.append(pokeInfo.name)
             }
+            
+            return ListPokemonViewModel.GetPokemons.Response.Success.init(images: urlsList, names: namesList)
+        } catch {
+            throw PokemonError.cannotLoadFromNetwork
         }
-        
-        return response ?? nil
     }
 }

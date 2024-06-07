@@ -20,7 +20,7 @@ final class PokemonRequest {
         if endpoint == .none {
             string = urlPokemon ?? ""
         } else {
-            string = endpoint.rawValue
+            string = endpoint.baseURL
         }
         
         if !path.isEmpty {
@@ -45,14 +45,15 @@ final class PokemonRequest {
     }
     
     public var url: URL? {
+        print(urlString)
         return URL(string: urlString)
     }
     
     public var httpMethod = "GET"
     
-    init(urlPokemonSelected: String?, endpoint: PokemonEndpoint?, path: [String] = [], queryItems: [URLQueryItem] = []) {
+    init(urlPokemonSelected: String?, endpoint: PokemonEndpoint, path: [String] = [], queryItems: [URLQueryItem] = []) {
         self.urlPokemon = urlPokemonSelected
-        self.endpoint = endpoint ?? .none
+        self.endpoint = endpoint 
         self.path = path
         self.queryItems = queryItems
     }

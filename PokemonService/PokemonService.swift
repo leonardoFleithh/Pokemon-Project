@@ -20,31 +20,29 @@ final class PokemonService {
     public init() {}
     
     public func fetchPokemon<T: Codable>(request: PokemonRequest,
-                                  type: T.Type,
-                                  completion: @escaping (Result<T, Error>) -> Void) {
+                                         type: T.Type) async throws -> T {
         
         guard let url = request.url else {
-            completion(.failure(PokemonError.badURL))
-            return
+            throw PokemonError.badURL
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = request.httpMethod
         
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                completion(.failure(PokemonError.badServerResponse))
-                return
-            }
-            
-            do {
-                let result = try JSONDecoder().decode(type.self, from: data)
-                print(String(describing: result))
-            } catch {
-                completion(.failure(PokemonError.cannotLoadFromNetwork))
-            }
-        }
-        task.resume()
+        let (data, response) = try await URLSession.shared.data(for: request)
         
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw PokemonError.badServerResponse
+        }
+        
+        do {
+            let decode = JSONDecoder()
+            decode.keyDecodingStrategy = .convertFromSnakeCase
+            let result = try decode.decode(type, from: data)
+            return result
+        } catch {
+            throw PokemonError.cannotLoadFromNetwork
+        }
     }
 }
+

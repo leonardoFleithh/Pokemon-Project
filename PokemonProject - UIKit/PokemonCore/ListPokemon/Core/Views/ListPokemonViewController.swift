@@ -39,18 +39,19 @@ class ListPokemonViewController: UIViewController, CodedView {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         view.backgroundColor = .secondarySystemBackground
         title = "Pokemon List"
-
+        setupView()
+        
+        Task {
+            try await self.fetchPokemonList()
+        }
     }
     
     //MARK: CodedView
     func setupView() {
         setupHierarchy()
         setupConstraints()
-        
-        self.interactor.fetchImagesForPokemon(<#T##request: String##String#>)
     }
     
     func setupHierarchy() {
@@ -67,5 +68,7 @@ class ListPokemonViewController: UIViewController, CodedView {
     }
     
     //MARK: Func's
-    
+    private func fetchPokemonList() async throws {
+        try await self.interactor.fetchImagesForPokemon(.init())
+    }
 }
